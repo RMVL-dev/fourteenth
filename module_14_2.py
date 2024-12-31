@@ -12,7 +12,6 @@ balance_sum = cursor.fetchone()[0]
 cursor.execute("Select AVG(balance) From Users")
 avg_balance_auto = cursor.fetchone()[0]
 
-print(f"auto average balance = {avg_balance_auto}\nmanual average balance = {balance_sum/count}")
-
+print(f"auto average balance = {avg_balance_auto}\nmanual average balance = {balance_sum / count}")
 
 connection.close()

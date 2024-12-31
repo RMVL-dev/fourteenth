@@ -57,7 +57,7 @@ async def send_confirm_message(call):
     await call.answer()
 
 
-@dispatcher.message_handler(text="Расчитать")
+@dispatcher.message_handler(text="Рассчитать")
 async def main_menu(ms):
     await ms.answer("Выберите опцию:", reply_markup=inline_keyboard)
 

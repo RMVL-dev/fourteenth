@@ -41,3 +41,22 @@ def get_all_products():
         products.append(vitamin(product))
     connection.close()
     return products
+
+
+def add_user(email, age, username):
+    connection = sqlite3.connect("bot_database.db")
+    cursor = connection.cursor()
+    cursor.execute("INSERT INTO Users(username, email, age, balance) VALUES(?,?,?,?)", (username, email, age, 1000))
+    connection.commit()
+    connection.close()
+
+
+def check_user_in_database(username):
+    connection = sqlite3.connect("bot_database.db")
+    cursor = connection.cursor()
+    cursor.execute("Select username from Users where username = ?", (username,))
+    user_in_database = True
+    if len(cursor.fetchall()) == 0:
+        user_in_database = False
+    connection.close()
+    return user_in_database

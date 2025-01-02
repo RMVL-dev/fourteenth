@@ -9,6 +9,7 @@ import crud_functions
 vitamins = crud_functions.get_all_products()
 api = API.apiKey
 bot = Bot(token=api)
+crud_functions.initiate_db()
 
 dispatcher = Dispatcher(bot=bot, storage=MemoryStorage())
 
